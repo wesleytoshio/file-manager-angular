@@ -1,0 +1,25 @@
+:host {
+    display: block;
+    background-color: #fff;
+    height: calc(100% - 128px);
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+    align-content: stretch;
+    margin: 34px;
+    padding: 50px;
+    border: dashed 2px #e5e4e4;
+    transition: all .2s ease-in-out;
+    text-align: center;
+
+    &.active {
+        border-color: #0d6efd;
+        background-color: #0d6dfd3b;
+    }
+
+    .bi-upload {
+        font-size: 48px;
+    }
+
+
+}

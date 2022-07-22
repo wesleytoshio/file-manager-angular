@@ -1,0 +1,9 @@
+<div [ngSwitch]="currentView">
+    <file-manager-upload-files [files]="files" *ngSwitchCase="'files'">
+    </file-manager-upload-files>
+    <file-manager-upload-select *ngSwitchCase="'upload'" (onSelectedFiles)="onSelectedFiles($event)">
+    </file-manager-upload-select>
+    <file-manager-upload-folder *ngSwitchDefault (onSelectFolder)="onSelectFolder($event)">
+
+    </file-manager-upload-folder>
+</div>

@@ -1,0 +1,13 @@
+:host {
+    .scaffold {
+        height: 100%;
+        position: relative;
+        width: 100%;
+    }
+
+    display: block;
+    position: relative;
+    z-index: 11;
+    pointer-events: all !important;
+
+}

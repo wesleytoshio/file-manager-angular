@@ -1,0 +1,25 @@
+<div class="files-uploaded-wrapper">
+    <p class="files-uploaded-divider">Enviando arquivos:</p>
+    <div *ngFor="let item of [1,2,3,4,6,7,8,9,10]" class="row align-items-center gx-5 file-uploaded">
+        <div class="col-1"><img
+                src="https://cdn.dribbble.com/users/68238/avatars/small/f3273ba2218aa2327e22ce0da625dcfd.jpg?1625763679"
+                width="48" class="rounded "></div>
+        <div class="col file-uploaded-info">
+            <p>
+                <strong>Fancy display heading</strong>
+                <small class="text-muted">Image ● 277 KB ● JPG</small>
+            </p>
+        </div>
+        <div class="col-2">
+            <div class="btn-group" role="group" aria-label="Actions">
+                <button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-crop"></i></button>
+                <button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="files-uploaded-bottom">
+    <button type="button" class="btn  btn-primary"><i class="bi bi-upload"></i> Enviar</button>
+</div>

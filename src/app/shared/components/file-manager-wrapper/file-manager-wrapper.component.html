@@ -1,0 +1,8 @@
+<section class="scaffold">
+    <file-manager-header [currentView]="navigationType">
+    </file-manager-header>
+    <file-manager-content></file-manager-content>
+</section>
+<file-manager-image-crop [value]="imageChangedEvent" *ngIf="showCropper">
+</file-manager-image-crop>
+<!-- <drag-area-overflow draggable="true"></drag-area-overflow> -->

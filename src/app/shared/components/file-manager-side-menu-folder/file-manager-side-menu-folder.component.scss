@@ -1,0 +1,100 @@
+/* Style the buttons that are used to open and close the accordion panel */
+:host {
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    display: block;
+    margin: 3px 0;
+
+    .bi {
+        font-size: 18px;
+    }
+
+
+
+    &.active {
+        background-color: #0d6efd;
+        color: white;
+
+
+        .file-manager-side-menu-item-label {
+            color: currentColor;
+
+            .bi {
+                color: currentColor !important;
+            }
+        }
+
+
+        .file-manager-side-menu-item-content {
+            display: block;
+        }
+
+
+    }
+
+    .file-manager-side-menu-item-label {
+        color: #444;
+        cursor: pointer;
+        align-content: stretch;
+        width: 100%;
+        text-align: left;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: row;
+        height: 40px;
+        font-size: 14px;
+        justify-content: flex-start;
+        align-items: center;
+        user-select: none;
+        border-radius: 8px;
+
+
+        p {
+            max-width: 100px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            margin: 0;
+        }
+
+        .file-manager-side-menu-item-label-folder {
+            padding: 2px 4px;
+
+
+        }
+
+        .file-manager-side-menu-item-label-arrow {
+            width: 20px;
+
+            .bi {
+                font-size: 14px;
+                position: relative;
+                top: -1.5px;
+                color: #bbb8b8;
+            }
+        }
+
+        &:hover {
+            background-color: #0d6efd;
+            color: white;
+
+            .bi {
+                color: currentColor !important;
+            }
+
+
+        }
+
+    }
+
+    .file-manager-side-menu-item-content {
+        display: none;
+        overflow: hidden;
+        transition: all 0.2s ease-in-out;
+    }
+}

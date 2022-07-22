@@ -1,0 +1,6 @@
+<div class="file-manager-side-menu-item-label" (click)="onClick($event)">
+    <div class="file-manager-side-menu-item-label-folder">
+        <i class="bi" [class.bi-folder]="!active" [class.bi-folder2-open]="active"></i>
+    </div>
+    <p>{{name}}</p>
+</div>

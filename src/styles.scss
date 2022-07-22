@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    display: block;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #20252c;
+    font-family: 'Roboto', sans-serif;
+}
+
+::ng-deep {
+    img.ngx-ic-source-image {
+        margin: 0px auto;
+    }
+}

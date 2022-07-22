@@ -1,0 +1,31 @@
+<div class="file-manager-header fw-bold">
+    <b><i class="bi bi-crop mx-2"></i> Cortar imagem</b>
+    <div>
+        <button type="button" class="btn btn-secondary" (click)="onSkip()">Pular</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Salvar alterações</button>
+    </div>
+</div>
+<div class="container file-manager-body">
+    <div class="file-manager-crop-area">
+        <image-cropper [imageBase64]="imageBase64" [maintainAspectRatio]="true" [aspectRatio]="4 / 4" format="png"
+            (imageCropped)="cropImg($event)" (imageLoaded)="imgLoad()" (cropperReady)="initCropper()"
+            (loadImageFailed)="imgFailed()">
+        </image-cropper>
+    </div>
+    <div class="file-manager-cropper-preview text-center">
+        <h6>Pré-visualização</h6>
+        <img [src]="cropImgPreview" />
+
+    </div>
+</div>
+<div class="file-manager-footer">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-danger"><i class="bi bi-arrow-repeat"></i></button>
+        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-counterclockwise"></i></button>
+        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-clockwise"></i></button>
+        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-down-up"></i></button><button
+            type="button" class="btn btn-outline-secondary"><i class="bi bi-zoom-in"></i></button><button type="button"
+            class="btn btn-outline-secondary"><i class="bi bi-zoom-out"></i></button>
+    </div>
+
+</div>

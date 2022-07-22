@@ -1,0 +1,25 @@
+<div [ngSwitch]="currentView">
+    <div *ngSwitchCase="'upload'" class="row g-0">
+        <div class="col">
+            <button type="button" class="btn btn-outline-secondary btn-sm " (click)="onClick('new-folder')"><i
+                    class="bi bi-arrow-left"></i></button>
+        </div>
+    </div>
+    <div *ngSwitchDefault class="row g-0">
+        <div class="col">
+            <button type="button" class="btn btn-outline-primary btn-sm me-md-2" (click)="onClick('newFolder')"><i
+                    class="bi bi-folder-plus me-md-1"></i>
+                Criar pasta</button>
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="onClick('sendFile')"><i
+                    class="bi bi-upload me-md-1"></i>
+                Enviar arquivo</button>
+        </div>
+        <div class="col">
+            <div class="input-group input-group-sm">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                    aria-describedby="search">
+                <span class="input-group-text" id="search"><i class="bi bi-search"></i></span>
+            </div>
+        </div>
+    </div>
+</div>

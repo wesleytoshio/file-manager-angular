@@ -1,0 +1,16 @@
+<div class="drop-area">
+    <i class="bi bi-upload"></i>
+    <h5><small class="text-muted">Arraste e solte o arquivo aqui
+            para enviá-los</small>
+    </h5>
+    <p>
+        O tamanho máximo do arquivo de upload: 100 MB.
+    </p>
+    <blockquote class="blockquote">
+        <p>OU</p>
+    </blockquote>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <input class="visually-hidden" type="file" #file multiple (change)="fileBrowseHandler($event)" />
+        <button class="btn btn-primary" (click)="file.click()" type="button">Enviar arquivos</button>
+    </div>
+</div>
