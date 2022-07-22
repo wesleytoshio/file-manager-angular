@@ -1,4 +1,5 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { FileManagerItemInterface } from '../../interfaces/file-manager-item.interface';
 
 @Component({
   selector: 'file-manager-side-menu-folder',
@@ -7,13 +8,14 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 })
 export class FileManagerSideMenuFolder implements OnInit {
   @Input() canExpand: boolean = false;
-  @Input() name: string = 'Unknown';
+  @Input() item?: FileManagerItemInterface;
   @HostBinding('class.active') @Input() active: boolean = false;
   constructor() {
 
   }
 
   ngOnInit(): void {
+    console.log(this.item);
 
   }
 

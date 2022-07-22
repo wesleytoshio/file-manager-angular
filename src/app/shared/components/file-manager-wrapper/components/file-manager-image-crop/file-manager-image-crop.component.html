@@ -5,7 +5,7 @@
         <button type="button" class="btn btn-primary" (click)="onSave()">Salvar alterações</button>
     </div>
 </div>
-<div class="container file-manager-body">
+<div class="container-fluid file-manager-body">
     <div class="file-manager-crop-area">
         <image-cropper [imageBase64]="imageBase64" [maintainAspectRatio]="true" [aspectRatio]="4 / 4" format="png"
             (imageCropped)="cropImg($event)" (imageLoaded)="imgLoad()" (cropperReady)="initCropper()"

@@ -1,7 +1,7 @@
 :host {
 
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 200px 1fr 300px;
     overflow: hidden;
-    height: 445px;
+    height: calc(100% - 81px);
 }

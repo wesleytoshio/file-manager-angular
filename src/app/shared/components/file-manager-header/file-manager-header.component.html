@@ -3,41 +3,5 @@
 
 <!-- Modal -->
 <ng-template #content let-modal let-c="close" let-d="dismiss">
-    <div class="modal-folder-create">
-        <div class="modal-header">
-            <p class="modal-title fw-bold" id="modal-basic-title"><i class="bi bi-folder-plus me-md-1"></i>
-                Nova pasta</p>
-            <button type="button" class="btn-close me-md-1" aria-label="Close"
-                (click)="modal.dismiss('Cross click')"></button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="folderName" placeholder="Nome da pasta">
-                        <label for="folderName">Nome da pasta:</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="selectBind" aria-label="Floating label select example">
-                            <option selected>Não vincular</option>
-                            <option value="1">Images</option>
-                            <option value="2">Documents</option>
-                            <option value="3">Videos</option>
-                        </select>
-                        <label for="selectBind">Vincular esta pasta:</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-success " (click)="c('Save click')">
-                <!-- <i class="bi bi-check-lg me-md-2"></i> -->
-                Salvar
-            </button>
-        </div>
-    </div>
+    <form-folder (onClose)="modal.dismiss('Cross click')"></form-folder>
 </ng-template>

@@ -1,8 +1,8 @@
-<div class="file-manager-list-upload text-center" [class.drop-active]="typeTargetHandle.drag"
+<div class="file-manager-list-upload text-center" [class.drop-active]="typeTargetHandle.drag" (click)="file.click()"
     *ngIf="typeTargetHandle.click || typeTargetHandle.drag">
     <h1 class="bi bi-cloud-upload link-primary"></h1>
     <input class="visually-hidden" type="file" #file (change)="fileBrowseHandler($event)" />
-    <p>Arraste e solte ou <a href="#" class="link-primary fw-bold" (click)="file.click()">escolher arquivo</a>
+    <p>Arraste e solte ou <a href="#" class="link-primary fw-bold">escolher arquivo</a>
         <small class="text-size-warning"> o tamanho máximo do arquivo de upload: 100 MB.</small>
     </p>
 

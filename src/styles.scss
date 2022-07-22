@@ -28,6 +28,14 @@ body {
     box-shadow: none;
 }
 
+.rounded-md {
+    border-radius: 12px;
+}
+
+.form-select:hover {
+    cursor: pointer;
+}
+
 .force-focus {
     color: var(--bs-btn-hover-color) !important;
     background-color: var(--bs-btn-hover-bg) !important;

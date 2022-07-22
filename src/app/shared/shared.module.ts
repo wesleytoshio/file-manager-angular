@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NgModuleFactory } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FileManagerList } from './components/file-manager-list/file-manager-list.component';
 import { FileManagerPreview } from './components/file-manager-preview/file-manager-preview.component';
 import { FileManagerSideMenuFolder } from './components/file-manager-side-menu-folder/file-manager-side-menu-folder.component';
@@ -18,11 +18,11 @@ import { FileManagerImageCrop } from './components/file-manager-wrapper/componen
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { FormFolder } from './components/file-manager-header/components/form-folder/form-folder.component';
 import { FileManagerNavbar } from './components/file-manager-header/components/file-manager-navbar/file-manager-navbar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [CommonModule,
-        ImageCropperModule, NgbModule],
+        ImageCropperModule, NgbModalModule, ReactiveFormsModule],
     declarations: [FileManagerWrapper,
         FileManagerSideMenu,
         FileManagerSideMenuFolder,

@@ -5,6 +5,7 @@ import { distinctUntilKeyChanged } from 'rxjs/operators';
 import { FileManagerService } from '../../services/file-manager.service';
 import { NgbModal, ModalDismissReasons, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FileManagerItemInterface } from '../../interfaces/file-manager-item.interface';
+import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'file-manager-header',
   templateUrl: './file-manager-header.component.html',
@@ -20,6 +21,20 @@ export class FileManagerHeader implements OnInit {
     sendfile: false,
     search: false,
   };
+
+  fileForm = new FormGroup({
+    name: new FormControl(''),
+    parent: new FormControl(''),
+  });
+
+  states = [
+    { name: 'Arizona', abbrev: 'AZ' },
+    { name: 'California', abbrev: 'CA' },
+    { name: 'Colorado', abbrev: 'CO' },
+    { name: 'New York', abbrev: 'NY' },
+    { name: 'Pennsylvania', abbrev: 'PA' },
+  ];
+
   constructor(private config: NgbModalConfig,
     private fileManagerService: FileManagerService,
     private modalService: NgbModal) {
@@ -74,6 +89,11 @@ export class FileManagerHeader implements OnInit {
           `Dismissed ${this.getDismissReason(reason)}`;
       })
 
+  }
+  onModalClose() {
+    console.log('aaaaaaaaaaaaaaaaaaaaaa');
+
+    // this.modal.dismiss('Cross click')
   }
 
   private getDismissReason(reason: any): string {

@@ -6,7 +6,7 @@
     <div class="file-manager-side-menu-item-label-folder me-md-2">
         <i class="bi" [class.bi-folder]="!active" [class.bi-folder2-open]="active"></i>
     </div>
-    <p>{{name}}</p>
+    <p>{{item?.name}}</p>
 </div>
 <div class="file-manager-side-menu-item-content" [ngClass]="{'file-manager-side-menu-item-content-expanded': canExpand}"
     *ngIf="canExpand">

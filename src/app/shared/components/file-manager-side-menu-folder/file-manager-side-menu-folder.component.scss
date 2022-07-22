@@ -7,7 +7,7 @@
     border-radius: 8px;
     width: 100%;
     display: block;
-    margin: 3px 0;
+    margin: 6px 0;
 
     .bi {
         font-size: 18px;
@@ -51,6 +51,7 @@
         align-items: center;
         user-select: none;
         border-radius: 8px;
+        border: solid 1px #e5e4e4;
 
 
         p {
@@ -60,6 +61,8 @@
             text-overflow: ellipsis;
             display: block;
             margin: 0;
+            position: relative;
+            top: -0.8px;
         }
 
         .file-manager-side-menu-item-label-folder {
@@ -82,6 +85,7 @@
         &:hover {
             background-color: #0d6efd;
             color: white;
+            border-color: #0d6efd;
 
             .bi {
                 color: currentColor !important;

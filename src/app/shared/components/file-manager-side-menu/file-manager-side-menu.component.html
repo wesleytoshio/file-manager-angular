@@ -1,8 +1,11 @@
-<file-manager-side-menu-folder name="Sessions" [active]="true" [canExpand]="true">
+<!-- <file-manager-side-menu-folder name="Sessions" [active]="true" [canExpand]="true">
     <file-manager-side-menu-folder name="Downloads"></file-manager-side-menu-folder>
 </file-manager-side-menu-folder>
-<file-manager-side-menu-folder name="Documents"></file-manager-side-menu-folder>
 <file-manager-side-menu-folder name="Videos"></file-manager-side-menu-folder>
 <file-manager-side-menu-folder name="Course Images {{i}}"
-    *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11]; let i = index ">
-</file-manager-side-menu-folder>
+*ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11]; let i = index ">
+</file-manager-side-menu-folder> -->
+<div class="scrollabe">
+    <file-manager-side-menu-folder *ngFor="let item of items" [item]="item"></file-manager-side-menu-folder>
+</div>
+<div class="file-manager-copyright">WFile Manager 1.0</div>

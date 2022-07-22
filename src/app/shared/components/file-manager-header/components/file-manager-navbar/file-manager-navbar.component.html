@@ -1,16 +1,17 @@
 <div class="row g-0">
     <div class="col file-manager-buttons">
-        <button type="button" class="btn btn-success btn-sm me-md-2 me-md-2"
-            (click)="onCreateFolder.emit('sendFile')"><i class="bi bi-folder-plus me-md-1"></i>
-            Criar pasta</button>
-        <button type="button" class="btn btn-primary btn-sm" [class.force-focus]="state?.sendfile"
+        <button type="button" class="btn btn-success  me-md-2 me-md-2" (click)="onCreateFolder.emit('sendFile')"><i
+                class="bi bi-folder-plus me-md-1"></i>
+            Nova</button>
+        <button type="button" class="btn btn-primary " [class.force-focus]="state?.sendfile"
             (click)="onUpload.emit('sendFile')"><i class="bi bi-upload me-md-1"></i>
             Enviar arquivo</button>
     </div>
     <div class="col">
-        <div class="input-group input-group-sm">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search">
-            <span class="input-group-text" id="search"><i class="bi bi-search"></i></span>
+        <div class="input-group input-group">
+            <input type="text" class="form-control " placeholder="Search files...." aria-label="Search"
+                aria-describedby="search">
+            <span class="input-group-text pointer" id="search"><i class="bi bi-search"></i></span>
         </div>
     </div>
 </div>

@@ -1,1 +1,38 @@
-<p>form-folder works!</p>
+<div class="modal-folder-create">
+    <div class="modal-header">
+        <p class="modal-title fw-bold" id="modal-basic-title"><i class="bi bi-folder-plus me-md-1"></i>
+            Nova pasta</p>
+        <button type="button" class="btn-close me-md-1" aria-label="Close" (click)="onClose.emit(false)"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="fileForm">
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="folderName" formControlName="name"
+                            placeholder="Nome da pasta">
+                        <label for="folderName">Nome da pasta:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" formControlName="parent" id="selectBind"
+                            aria-label="Floating label select example">
+                            <option selected [ngValue]="null">Não vincular</option>
+                            <option *ngFor="let folder of folders" [ngValue]="folder">{{ folder.name }}</option>
+                        </select>
+                        <label for="selectBind">Vincular esta pasta:</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success " [disabled]="!fileForm.valid" (click)="onSave()">
+            <!-- <i class="bi bi-check-lg me-md-2"></i> -->
+            Salvar
+        </button>
+    </div>
+</div>
