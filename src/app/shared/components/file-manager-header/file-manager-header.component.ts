@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FileManagerService } from 'src/app/services/file-manager.service';
-import { FileManagerEventTarget, FileManagerEventType } from '../../interfaces/file-manager-event.interface';
-
+import { FileManagerEvent, FileManagerEventTarget, FileManagerEventType } from '../../interfaces/file-manager-event.interface';
+import { HeaderItemHandle } from '../../interfaces/handle.interface';
+import { distinctUntilKeyChanged } from 'rxjs/operators';
 @Component({
   selector: 'file-manager-header',
   templateUrl: './file-manager-header.component.html',
@@ -11,9 +12,9 @@ import { FileManagerEventTarget, FileManagerEventType } from '../../interfaces/f
 export class FileManagerHeader implements OnInit {
   @Input() currentView: string = 'default';
   @Output() onChanged = new EventEmitter<string>();
-  menuState = {
+  menuState: HeaderItemHandle = {
     newFolder: false,
-    upload: false,
+    sendfile: false,
     search: false,
   };
   constructor(private fileManagerService: FileManagerService) {
@@ -21,12 +22,18 @@ export class FileManagerHeader implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fileManagerService.event
+      .pipe(distinctUntilKeyChanged('type'))
+      .subscribe((event: FileManagerEvent) => {
+        if (event.type == FileManagerEventType.UPLOAD) this.menuState = {};
+
+      });
   }
 
   onClick(value: string) {
-    this.menuState.upload = !this.menuState.upload;
+    this.menuState.sendfile = !this.menuState.sendfile;
     this.fileManagerService.emit({
-      data: this.menuState.upload,
+      data: this.menuState.sendfile,
       type: FileManagerEventType.CLICK_TO_UPLOAD,
       target: FileManagerEventTarget.TO_LIST_FILES,
     });

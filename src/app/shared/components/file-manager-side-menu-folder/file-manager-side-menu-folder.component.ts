@@ -8,16 +8,18 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 export class FileManagerSideMenuFolder implements OnInit {
   @Input() canExpand: boolean = false;
   @Input() name: string = 'Unknown';
+  @HostBinding('class.active') @Input() active: boolean = false;
   constructor() {
 
   }
 
   ngOnInit(): void {
+
   }
 
 
 
-  @HostBinding('class.active') active: boolean = false;
+
 
   onClick(e: any) {
     this.active = !this.active;

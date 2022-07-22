@@ -3,7 +3,7 @@ import { map, Observable } from 'rxjs';
 import { FileManagerService } from 'src/app/services/file-manager.service';
 import { FileManagerEvent, FileManagerEventTarget, FileManagerEventType } from '../../interfaces/file-manager-event.interface';
 import { filter } from 'rxjs/operators';
-import { TypeTargetHandle } from '../../interfaces/type-target-handle.interface';
+import { TypeTargetHandle } from '../../interfaces/handle.interface';
 @Component({
   selector: 'file-manager-list',
   templateUrl: './file-manager-list.component.html',
@@ -25,6 +25,8 @@ export class FileManagerList implements OnInit {
     this.fileManagerService.event
       .pipe(filter(val => val.target === FileManagerEventTarget.TO_LIST_FILES))
       .subscribe((event: FileManagerEvent) => {
+        console.log('aaaaa', event);
+
         switch (event.type) {
           case FileManagerEventType.CLICK_TO_UPLOAD:
             this.typeTargetHandle.click = event.data;
@@ -34,6 +36,9 @@ export class FileManagerList implements OnInit {
             break;
           case FileManagerEventType.DRAG_LEAVE:
             this.typeTargetHandle.drag = false;
+            break;
+          case FileManagerEventType.UPLOAD:
+            this.typeTargetHandle = {};
             break;
         }
       });

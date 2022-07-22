@@ -14,26 +14,26 @@
     }
 
     &.active {
-        .file-manager-side-menu-item-label {}
+        .file-manager-side-menu-sub-item-label {}
 
-        .file-manager-side-menu-item-content {
+        .file-manager-side-menu-sub-item-content {
             display: block;
         }
 
-        .file-manager-side-menu-item-label-arrow {
+        .file-manager-side-menu-sub-item-label-arrow {
             transform: rotate(90deg) !important;
 
         }
 
     }
 
-    .file-manager-side-menu-item-label {
+    .file-manager-side-menu-sub-item-label {
         color: #fff;
         cursor: pointer;
         align-content: stretch;
         width: 100%;
         text-align: left;
-        padding: 0 12px;
+        padding: 0 3px;
         display: flex;
         flex-direction: row;
         height: 40px;
@@ -48,9 +48,10 @@
 
         p {
             margin: 0;
+            margin-left: 12px;
         }
 
-        .file-manager-side-menu-item-label-folder {
+        .file-manager-side-menu-sub-item-label-folder {
             padding: 2px 4px;
 
             img {
@@ -59,7 +60,7 @@
         }
 
         &:hover {
-            //background-color: #f5f5f5;
+            font-weight: bold;
         }
 
     }

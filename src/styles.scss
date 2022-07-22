@@ -18,6 +18,14 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.force-focus {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+    outline: 0;
+    box-shadow: var(--bs-btn-focus-box-shadow);
+}
+
 ::ng-deep {
     img.ngx-ic-source-image {
         margin: 0px auto;

@@ -47,6 +47,7 @@ export class FileManagerWrapper implements OnInit {
     }
   }
 
+
   // Drop listener
   @HostListener('drop', ['$event']) public ondrop(evt: any) {
     evt.preventDefault();

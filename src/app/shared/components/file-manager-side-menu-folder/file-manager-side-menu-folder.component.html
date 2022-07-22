@@ -1,5 +1,5 @@
-<div class="file-manager-side-menu-item-label" [ngClass]="{'file-manager-side-menu-item-label-subfolder': canExpand}"
-    (click)="onClick($event)">
+<div class="file-manager-side-menu-item-label" [class.active]="active"
+    [ngClass]="{'file-manager-side-menu-item-label-subfolder': canExpand}" (click)="onClick($event)">
     <div class="file-manager-side-menu-item-label-arrow">
         <i class="bi" *ngIf="canExpand" [class.bi-chevron-right]="!active" [class.bi-chevron-down]="active"></i>
     </div>

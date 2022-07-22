@@ -9,7 +9,7 @@
     <div class="file-manager-crop-area">
         <image-cropper [imageBase64]="imageBase64" [maintainAspectRatio]="true" [aspectRatio]="4 / 4" format="png"
             (imageCropped)="cropImg($event)" (imageLoaded)="imgLoad()" (cropperReady)="initCropper()"
-            (loadImageFailed)="imgFailed()">
+            [canvasRotation]="canvasRotation" [transform]="transform" (loadImageFailed)="imgFailed()">
         </image-cropper>
     </div>
     <div class="file-manager-cropper-preview text-center">
@@ -20,12 +20,17 @@
 </div>
 <div class="file-manager-footer">
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-danger"><i class="bi bi-arrow-repeat"></i></button>
-        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-counterclockwise"></i></button>
-        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-clockwise"></i></button>
-        <button type="button" class="btn btn-outline-secondary"><i class="bi bi-arrow-down-up"></i></button><button
-            type="button" class="btn btn-outline-secondary"><i class="bi bi-zoom-in"></i></button><button type="button"
-            class="btn btn-outline-secondary"><i class="bi bi-zoom-out"></i></button>
+        <button type="button" (click)="resetImage()" class="btn btn-outline-danger"><i
+                class="bi bi-eraser"></i></button>
+        <button type="button" (click)="flipHorizontal()" class="btn btn-outline-secondary"><i
+                class="bi bi-arrow-left-right"></i></button>
+        <button type="button" (click)="flipVertical()" class="btn btn-outline-secondary"><i
+                class="bi bi-arrow-down-up"></i></button>
+
+        <button type="button" (click)="zoomIn()" class="btn btn-outline-secondary"><i
+                class="bi bi-zoom-in"></i></button>
+        <button type="button" (click)="zoomOut()" class="btn btn-outline-secondary"><i
+                class="bi bi-zoom-out"></i></button>
     </div>
 
 </div>
