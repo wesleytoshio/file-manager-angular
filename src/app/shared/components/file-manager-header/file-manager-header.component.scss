@@ -2,7 +2,11 @@
     border-bottom: 1px solid #d6dee6;
     padding: 12px;
 
-
+    .file-manager-buttons {
+        button {
+            margin-right: 12px !important;
+        }
+    }
 
     .file-manager-header-button {
         padding: 0 16px;
@@ -31,4 +35,6 @@
             width: 20px;
         }
     }
+
+
 }

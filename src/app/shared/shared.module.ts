@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NgModuleFactory } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FileManagerList } from './components/file-manager-list/file-manager-list.component';
 import { FileManagerPreview } from './components/file-manager-preview/file-manager-preview.component';
@@ -16,10 +16,13 @@ import { FileManagerUploadSelect } from './components/file-manager-upload/compon
 import { FileManagerUploadFolder } from './components/file-manager-upload/components/file-manager-upload-folder/file-manager-upload-folder.component';
 import { FileManagerImageCrop } from './components/file-manager-wrapper/components/file-manager-image-crop/file-manager-image-crop.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { FormFolder } from './components/file-manager-header/components/form-folder/form-folder.component';
+import { FileManagerNavbar } from './components/file-manager-header/components/file-manager-navbar/file-manager-navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [CommonModule,
-        ImageCropperModule],
+        ImageCropperModule, NgbModule],
     declarations: [FileManagerWrapper,
         FileManagerSideMenu,
         FileManagerSideMenuFolder,
@@ -34,6 +37,9 @@ import { ImageCropperModule } from 'ngx-image-cropper';
         FileManagerUploadSelect,
         FileManagerUploadFolder,
         FileManagerImageCrop,
+        FormFolder,
+        FileManagerNavbar,
+
     ],
     exports: [FileManagerWrapper, FileManagerSideMenu, FileManagerSideMenuFolder, FileManagerList, FileManagerPreview, FileManagerSideMenuSubfolder,
         CommonModule, FormsModule],

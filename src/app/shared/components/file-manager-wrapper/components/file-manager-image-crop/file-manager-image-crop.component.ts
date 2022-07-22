@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
-import { FileManagerService } from 'src/app/services/file-manager.service';
+import { FileManagerService } from 'src/app/shared/services/file-manager.service';
 import { filter } from 'rxjs/operators';
 import { FileManagerEventTarget, FileManagerEventType } from 'src/app/shared/interfaces/file-manager-event.interface';
 @Component({

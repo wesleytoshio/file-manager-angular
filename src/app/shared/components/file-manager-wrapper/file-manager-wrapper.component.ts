@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostBinding, HostListener, OnInit, ViewChild } from '@angular/core';
-import { FileManagerService } from 'src/app/services/file-manager.service';
+import { FileManagerService } from 'src/app/shared/services/file-manager.service';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { FileManagerEventType, FileManagerEventTarget } from '../../interfaces/file-manager-event.interface';
 @Component({

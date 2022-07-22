@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FileManagerService } from 'src/app/services/file-manager.service';
 import { FileManagerEvent, FileManagerEventTarget, FileManagerEventType } from '../../interfaces/file-manager-event.interface';
 import { HeaderItemHandle } from '../../interfaces/handle.interface';
 import { distinctUntilKeyChanged } from 'rxjs/operators';
+import { FileManagerService } from '../../services/file-manager.service';
+import { NgbModal, ModalDismissReasons, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { FileManagerItemInterface } from '../../interfaces/file-manager-item.interface';
 @Component({
   selector: 'file-manager-header',
   templateUrl: './file-manager-header.component.html',
@@ -12,16 +14,37 @@ import { distinctUntilKeyChanged } from 'rxjs/operators';
 export class FileManagerHeader implements OnInit {
   @Input() currentView: string = 'default';
   @Output() onChanged = new EventEmitter<string>();
+  closeResult = '';
   menuState: HeaderItemHandle = {
     newFolder: false,
     sendfile: false,
     search: false,
   };
-  constructor(private fileManagerService: FileManagerService) {
-
+  constructor(private config: NgbModalConfig,
+    private fileManagerService: FileManagerService,
+    private modalService: NgbModal) {
+    config.backdrop = 'static';
   }
 
   ngOnInit(): void {
+    let array: FileManagerItemInterface[] = [
+      {
+        name: "wesley",
+        id: "adsadssd",
+        createdAt: "asdasadsads",
+        folder: true,
+        children: [{
+          name: "wesley",
+          id: "adsadssd",
+          createdAt: "asdasadsads",
+          folder: true
+        }]
+
+      }
+    ];
+    console.log(JSON.stringify(array));
+
+
     this.fileManagerService.event
       .pipe(distinctUntilKeyChanged('type'))
       .subscribe((event: FileManagerEvent) => {
@@ -37,6 +60,30 @@ export class FileManagerHeader implements OnInit {
       type: FileManagerEventType.CLICK_TO_UPLOAD,
       target: FileManagerEventTarget.TO_LIST_FILES,
     });
+  }
+
+  createFolder() { }
+
+  open(content: any) {
+    this.modalService.open(content,
+      { ariaLabelledBy: 'modal-basic-title', centered: true }).result
+      .then(result => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult =
+          `Dismissed ${this.getDismissReason(reason)}`;
+      })
+
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 }

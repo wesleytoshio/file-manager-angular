@@ -18,16 +18,36 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.force-focus {
-    color: var(--bs-btn-hover-color);
-    background-color: var(--bs-btn-hover-bg);
-    border-color: var(--bs-btn-hover-border-color);
-    outline: 0;
-    box-shadow: var(--bs-btn-focus-box-shadow);
+
+
+.btn:focus,
+.form-control:focus,
+.btn-close:focus,
+.form-select:focus {
+    outline: none;
+    box-shadow: none;
 }
+
+.force-focus {
+    color: var(--bs-btn-hover-color) !important;
+    background-color: var(--bs-btn-hover-bg) !important;
+    border-color: var(--bs-btn-hover-border-color) !important;
+    outline: 0;
+    box-shadow: var(--bs-btn-focus-box-shadow) !important;
+}
+
+
 
 ::ng-deep {
     img.ngx-ic-source-image {
         margin: 0px auto;
+    }
+}
+
+.modal-folder-create {
+
+    .modal-header,
+    .modal-footer {
+        border: none !important;
     }
 }

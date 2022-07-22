@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { FileManagerEvent } from '../shared/interfaces/file-manager-event.interface';
+import { FileManagerEvent } from '../interfaces/file-manager-event.interface';
 
 @Injectable({
   providedIn: 'root'

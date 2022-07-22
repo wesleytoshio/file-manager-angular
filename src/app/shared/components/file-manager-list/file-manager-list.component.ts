@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { FileManagerService } from 'src/app/services/file-manager.service';
+import { FileManagerService } from 'src/app/shared/services/file-manager.service';
 import { FileManagerEvent, FileManagerEventTarget, FileManagerEventType } from '../../interfaces/file-manager-event.interface';
 import { filter } from 'rxjs/operators';
 import { TypeTargetHandle } from '../../interfaces/handle.interface';
