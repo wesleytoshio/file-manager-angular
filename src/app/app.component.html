@@ -2,7 +2,7 @@
   <file-manager-wrapper></file-manager-wrapper>
 </div> -->
 <!-- Modal -->
-<button type="button" class="btn btn-primary" (click)="open(content)">Abrir Modal</button>
+<button type="button" #button class="btn btn-primary" (click)="open(content)">Abrir Modal</button>
 <ng-template #content let-modal let-c="close" let-d="dismiss">
   <file-manager-wrapper></file-manager-wrapper>
 </ng-template>

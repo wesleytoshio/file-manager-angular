@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,15 +6,19 @@ import { ModalDismissReasons, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   closeResult = '';
+  @ViewChild('content') content: any;
   constructor(private config: NgbModalConfig,
     private modalService: NgbModal) {
     config.backdrop = 'static';
   }
+  ngAfterViewInit(): void {
+    this.open(this.content);
+  }
   open(content: any) {
     this.modalService.open(content,
-      { ariaLabelledBy: 'modal-basic-title', centered: true, fullscreen: true }).result
+      { ariaLabelledBy: 'modal-basic-title', fullscreen: true }).result
       .then(result => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {

@@ -32,8 +32,40 @@ body {
     border-radius: 12px;
 }
 
-.form-select:hover {
-    cursor: pointer;
+.form-select {
+
+    background-position: right 1.3rem center !important;
+    background-size: 18px 14px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.input-group-search {
+    .form-control {
+        border-right: none !important;
+        height: 39px;
+        font-size: 14px;
+
+        &:focus {
+            border-width: 2px;
+            border-color: #6c757d;
+
+            ~.input-group-text {
+                border-color: #6c757d;
+                border-width: 2px;
+            }
+        }
+    }
+
+    .input-group-text {
+        background-color: #fff;
+        border-left: none !important;
+        padding: 0 1rem;
+        height: 39px;
+
+    }
 }
 
 .force-focus {
@@ -58,4 +90,14 @@ body {
     .modal-footer {
         border: none !important;
     }
+}
+
+.btn-border-2 {
+    border-width: 2px !important;
+}
+
+.modal-open .modal,
+.btn:focus {
+    outline: none;
+    box-shadow: none;
 }

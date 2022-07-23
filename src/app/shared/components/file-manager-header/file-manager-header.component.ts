@@ -42,23 +42,6 @@ export class FileManagerHeader implements OnInit {
   }
 
   ngOnInit(): void {
-    let array: FileManagerItemInterface[] = [
-      {
-        name: "wesley",
-        id: "adsadssd",
-        createdAt: "asdasadsads",
-        folder: true,
-        children: [{
-          name: "wesley",
-          id: "adsadssd",
-          createdAt: "asdasadsads",
-          folder: true
-        }]
-
-      }
-    ];
-    console.log(JSON.stringify(array));
-
 
     this.fileManagerService.event
       .pipe(distinctUntilKeyChanged('type'))
