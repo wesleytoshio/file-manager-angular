@@ -4,7 +4,7 @@ import { HeaderItemHandle } from '../../interfaces/handle.interface';
 import { distinctUntilKeyChanged } from 'rxjs/operators';
 import { FileManagerService } from '../../services/file-manager.service';
 import { NgbModal, ModalDismissReasons, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { FileManagerItemInterface } from '../../interfaces/file-manager-item.interface';
+import { FileManagerItem } from '../../interfaces/file-manager-item.interface';
 import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'file-manager-header',

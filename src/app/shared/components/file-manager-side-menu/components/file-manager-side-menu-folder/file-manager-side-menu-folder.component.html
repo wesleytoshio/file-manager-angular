@@ -1,0 +1,18 @@
+<div class="file-manager-side-menu-item-label" [ngClass]="{'file-manager-side-menu-item-label-subfolder': canExpand}"
+    (click)="click($event)">
+    <div class="file-manager-side-menu-item-label-folder me-md-2">
+        <i class="bi" [class.bi-folder]="!active" [class.bi-folder2-open]="active"></i>
+    </div>
+    <p>{{item?.name}}</p>
+    <div class="file-manager-side-menu-item-label-arrow" *ngIf="canExpand">
+        <i class="bi" [class.bi-chevron-right]="!active" [class.bi-chevron-down]="active"></i>
+    </div>
+</div>
+
+<div class="file-manager-side-menu-item-content" [ngClass]="{'file-manager-side-menu-item-content-expanded': canExpand}"
+    *ngIf="canExpand">
+    <label type="button" class="file-manager-side-menu-item-sublabel" *ngFor="let item of [1,2,3,4,5,6]"> <i
+            class="bi bi-arrow-return-right"></i>
+        <p>Subfolder name {{item}}</p>
+    </label>
+</div>

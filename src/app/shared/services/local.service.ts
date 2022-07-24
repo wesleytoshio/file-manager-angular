@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { FileManagerItemInterface } from '../interfaces/file-manager-item.interface';
+import { FileManagerItem } from '../interfaces/file-manager-item.interface';
 
 @Injectable({ providedIn: "root" })
 export class FileManagerDataService {
-  private _data$ = new BehaviorSubject<FileManagerItemInterface[]>([]);
+  private _data$ = new BehaviorSubject<FileManagerItem[]>([]);
   public data$ = this._data$.asObservable()
   constructor() {
     if (localStorage.getItem('folders')) {
       this._data$.next(JSON.parse(localStorage.getItem('folders')!));
     }
   }
-  setData(data: FileManagerItemInterface) {
+  setData(data: FileManagerItem) {
     this._data$.next([...this._data$.getValue(), data]);
     localStorage.setItem('folders', JSON.stringify(this._data$.getValue()))
 

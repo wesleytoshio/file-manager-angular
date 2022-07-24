@@ -1,15 +1,15 @@
 <div class="row g-0">
     <div class="col file-manager-buttons">
-        <button type="button" class="btn btn-outline-secondary btn-border-2" placement="bottom"
-            ngbTooltip="Atualizar"><i class="bi bi-arrow-clockwise"></i>
-        </button>
-        <button type="button" class="btn btn-outline-secondary btn-border-2" placement="bottom" ngbTooltip="Criar pasta"
+        <label type="button" class="btn btn-outline-secondary btn-border-2" placement="bottom" ngbTooltip="Atualizar"><i
+                class="bi bi-arrow-clockwise"></i>
+        </label>
+        <label type="button" class="btn btn-outline-secondary btn-border-2" placement="bottom" ngbTooltip="Criar pasta"
             (click)="onCreateFolder.emit('newFolder')"><i class="bi bi-folder-plus "></i>
-        </button>
-        <button type="button" class="btn btn-outline-secondary btn-border-2" placement="bottom"
+        </label>
+        <label type="button" class="btn btn-outline-secondary btn-border-2" placement="bottom"
             ngbTooltip="Enviar arquivo" [class.force-focus]="state?.sendfile" (click)="onUpload.emit('sendFile')"><i
                 class="bi bi-upload"></i>
-        </button>
+        </label>
     </div>
     <div class="col">
         <div class="input-group input-group input-group-search">

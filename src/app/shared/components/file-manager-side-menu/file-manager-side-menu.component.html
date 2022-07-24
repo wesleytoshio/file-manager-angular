@@ -1,11 +1,27 @@
-<!-- <file-manager-side-menu-folder name="Sessions" [active]="true" [canExpand]="true">
-    <file-manager-side-menu-folder name="Downloads"></file-manager-side-menu-folder>
-</file-manager-side-menu-folder>
-<file-manager-side-menu-folder name="Videos"></file-manager-side-menu-folder>
-<file-manager-side-menu-folder name="Course Images {{i}}"
-*ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11]; let i = index ">
-</file-manager-side-menu-folder> -->
-<div class="scrollabe">
-    <file-manager-side-menu-folder *ngFor="let item of items" [item]="item"></file-manager-side-menu-folder>
+<div class="scrollable">
+    <!-- <file-manager-side-menu-folder *ngFor="let folder of folders; let itemIndex = index" [item]="folder"
+        (onClick)="onClickFolder($event)" [active]="currentFolder == itemIndex">
+    </file-manager-side-menu-folder> -->
+    <ngb-accordion class="menu-accordion" [closeOthers]="true" (panelChange)="beforeChange($event)">
+        <ngb-panel *ngFor="let folder of folders; let itemIndex = index" [id]="itemIndex.toString()">
+            <ng-template ngbPanelHeader let-opened="opened">
+                <button ngbPanelToggle class="accordion-button" [class.without-children]="!folder.children?.length"
+                    [class.collapsed]="!opened">
+                    <i class="bi bi-folder"></i>
+                    <p class="m-0 accordion-label">{{folder.name}}</p>
+                </button>
+            </ng-template>
+            <ng-template ngbPanelContent let-opened="opened" *ngIf="folder.children?.length">
+                <div class="accordion-content">
+
+                    <label type="button" class="file-manager-side-menu-item-sublabel"
+                        *ngFor="let subfolder of folder.children"> <i class="bi bi-arrow-return-right"></i>
+                        <p>{{subfolder.name}}</p>
+                    </label>
+                </div>
+
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
 </div>
 <div class="file-manager-copyright">WFile Manager 1.0</div>

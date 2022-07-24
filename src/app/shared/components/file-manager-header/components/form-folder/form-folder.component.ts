@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FileManagerItemInterface } from 'src/app/shared/interfaces/file-manager-item.interface';
+import { FileManagerItem } from 'src/app/shared/interfaces/file-manager-item.interface';
 import { FileManagerDataService } from 'src/app/shared/services/local.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class FormFolder implements OnInit {
     parent: new FormControl(null),
   });
 
-  folders: FileManagerItemInterface[] = [];
+  folders: FileManagerItem[] = [];
 
   constructor(private dataService: FileManagerDataService) { }
 

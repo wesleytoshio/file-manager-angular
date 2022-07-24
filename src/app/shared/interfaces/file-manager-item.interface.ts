@@ -1,9 +1,9 @@
-export interface FileManagerItemInterface {
+export interface FileManagerItem {
     id?: string;
     name?: string;
-    parent?: FileManagerItemInterface;
+    parent?: FileManagerItem;
     folder?: boolean,
-    children?: Array<FileManagerItemInterface>;
+    children?: FileManagerItem[];
     url?: string;
     thumbnail?: string;
     width?: number;

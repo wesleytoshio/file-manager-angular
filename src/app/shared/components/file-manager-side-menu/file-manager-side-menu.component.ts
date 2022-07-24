@@ -1,35 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { FileManagerItemInterface } from '../../interfaces/file-manager-item.interface';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { FileManagerItem } from '../../interfaces/file-manager-item.interface';
 import { FileManagerDataService } from '../../services/local.service';
 @Component({
   selector: 'file-manager-side-menu',
   templateUrl: './file-manager-side-menu.component.html',
-  styleUrls: ['./file-manager-side-menu.component.scss']
+  styleUrls: ['./file-manager-side-menu.component.scss'],
+  // styles: [`
+  //   .without-children::after {
+  //     content: none;
+  //   }
+  // `]
 })
 export class FileManagerSideMenu implements OnInit {
+  currentFolder: number = 0;
+  folders: FileManagerItem[] = [];
 
-  items: FileManagerItemInterface[] = [];
   constructor(private dataService: FileManagerDataService) { }
 
   ngOnInit(): void {
 
     this.dataService.data$.subscribe(data => {
 
-      this.items = data;
+      this.folders = data;
     });
   }
 
 
-  groupBy(array: any, key: any, name: any) {
-    return array.reduce((result: any, obj: any) => {
-      result[obj[key]] = result[obj[key]] || {
-        location: obj[name],
-        child: [],
-      };
-      result[obj[key]].child.push(obj);
-      return result;
-    }, {});
-  };
+
+  onClickFolder(item: FileManagerItem) {
+    this.currentFolder = this.folders.indexOf(item);
+    console.log(this.currentFolder);
+  }
+
+  public beforeChange($event: NgbPanelChangeEvent) {
+    console.log($event);
+
+    let folder: FileManagerItem = this.folders[Number($event.panelId)];
+
+    //if (!folder.children?.length) $event.preventDefault();
 
 
+  }
 }

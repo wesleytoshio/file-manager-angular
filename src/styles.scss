@@ -23,9 +23,10 @@ body {
 .btn:focus,
 .form-control:focus,
 .btn-close:focus,
-.form-select:focus {
-    outline: none;
-    box-shadow: none;
+.form-select:focus,
+.accordion-button {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .rounded-md {
@@ -82,7 +83,10 @@ body {
     img.ngx-ic-source-image {
         margin: 0px auto;
     }
+
+
 }
+
 
 .modal-folder-create {
 
