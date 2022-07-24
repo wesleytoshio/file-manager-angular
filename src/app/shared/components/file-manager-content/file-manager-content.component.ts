@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./file-manager-content.component.scss']
 })
 export class FileManagerContent implements OnInit {
-
+  selectedFile?: string
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClickFile(e: any) {
+    this.selectedFile = e;
+  }
 }

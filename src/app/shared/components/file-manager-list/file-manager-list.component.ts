@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { FileManagerService } from 'src/app/shared/services/file-manager.service';
 import { FileManagerEvent, FileManagerEventTarget, FileManagerEventType } from '../../interfaces/file-manager-event.interface';
@@ -7,15 +7,17 @@ import { TypeTargetHandle } from '../../interfaces/handle.interface';
 @Component({
   selector: 'file-manager-list',
   templateUrl: './file-manager-list.component.html',
-  styleUrls: ['./file-manager-list.component.scss']
+  styleUrls: ['./file-manager-list.component.scss'],
+  host: { "class": "custom-scroll" }
 })
 export class FileManagerList implements OnInit {
   typeTargetHandle: TypeTargetHandle = {
-    click: false,
+    click: true,
     drag: false,
   };
   dragInArea: boolean = false;
   @ViewChild('file') inputFile: any;
+  @Output() onClickFile = new EventEmitter<string>();
   constructor(private fileManagerService: FileManagerService) {
 
   }
@@ -55,36 +57,11 @@ export class FileManagerList implements OnInit {
     evt.target.value = null;
 
   }
+  onClick(e: any) {
+    console.log(e);
 
+    this.onClickFile.emit(`https://i.pravatar.cc/150?img=${e + 1}`);
+
+  }
 
 }
-const customTakeWhileInclusive = <T>(predicate: (value: T) => boolean) => (source: Observable<T>) => new Observable<T>(observer => {
-  let hasAlreadyMatched = false; // fix
-  return source.subscribe({
-    next: e => {
-      if (hasAlreadyMatched) {
-        observer.complete();
-      }
-      else {
-        if (!predicate(e)) {
-          /*
-           *   Code from https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/takeWhile.customTakeWhileInclusive
-           *  
-           *   if (this.inclusive) {
-           *      destination.next(value); // NO! with a synchronous scheduler, it will trigger another iteration without reaching the next "complete" statement 
-           *      and there is no way to detect if a match already occured!
-           *   }
-           *   destination.complete();
-           */
-
-          // Fix:
-          hasAlreadyMatched = true; // prevents from having stackoverflow issue here
-        }
-
-        observer.next(e);
-      }
-    },
-    error: (e) => observer.error(e),
-    complete: () => observer.complete()
-  });
-});

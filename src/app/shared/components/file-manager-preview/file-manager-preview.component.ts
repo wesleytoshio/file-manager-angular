@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'file-manager-preview',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./file-manager-preview.component.scss']
 })
 export class FileManagerPreview implements OnInit {
-
+  @Input() selectedFile?: string;
   constructor() { }
 
   ngOnInit(): void {

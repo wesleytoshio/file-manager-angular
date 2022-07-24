@@ -6,7 +6,7 @@ import { FileManagerItem } from '../../../../interfaces/file-manager-item.interf
   templateUrl: './file-manager-side-menu-folder.component.html',
   styleUrls: ['./file-manager-side-menu-folder.component.scss'],
   host: {
-    'class': 'btn btn-outline-secondary btn-border-2',
+    'class': 'btn btn-outline-secondary ',
 
 
   }

@@ -7,4 +7,25 @@
     </p>
 
 </div>
-<div class="file-manager-list-wrapper"></div>
+<div class="file-manager-list-wrapper">
+    <div class="file-manager-list-item">
+        <div class="file-manager-list-item-icon">
+            <h1 class="bi bi-filetype-pdf"></h1>
+        </div>
+        <p class="file-manager-list-item-name text-center text-muted">
+            Assessment/RPT
+            <span class="file-manager-list-item-date">Criado em 24/Jul/2022</span>
+        </p>
+    </div>
+    <div class="file-manager-list-item" (click)="onClick(indexImage)"
+        *ngFor="let item of [].constructor(30); let indexImage = index">
+        <div class="file-manager-list-item-icon">
+            <!-- <h1 class="bi bi-filetype-pdf"></h1> -->
+            <img src="https://i.pravatar.cc/150?img={{indexImage+1}}" />
+        </div>
+        <p class="file-manager-list-item-name text-center text-muted">
+            Imagem {{indexImage+1}}
+            <span class="file-manager-list-item-date">Criado em 24/Jul/2022</span>
+        </p>
+    </div>
+</div>

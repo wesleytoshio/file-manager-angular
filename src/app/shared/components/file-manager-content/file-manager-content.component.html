@@ -1,3 +1,3 @@
 <file-manager-side-menu></file-manager-side-menu>
-<file-manager-list></file-manager-list>
-<file-manager-preview></file-manager-preview>
+<file-manager-list (onClickFile)="onClickFile($event)"></file-manager-list>
+<file-manager-preview [selectedFile]="selectedFile"></file-manager-preview>
