@@ -18,7 +18,7 @@ export class AppComponent implements AfterViewInit {
   }
   open(content: any) {
     this.modalService.open(content,
-      { ariaLabelledBy: 'modal-basic-title', fullscreen: true }).result
+      { ariaLabelledBy: 'modal-basic-title', size: 'lg', centered: true, fullscreen: false }).result
       .then(result => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
